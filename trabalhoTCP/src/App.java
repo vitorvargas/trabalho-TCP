@@ -1,5 +1,5 @@
 //codigo principal que chama as classes
-//teste
+
 public class App {
     static String valorcarac; 
 

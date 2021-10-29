@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import javax.swing.JTextField;
+//import javax.swing.JTextField;
 
 public class caractere {
   Scanner objcarac = new Scanner(System.in);

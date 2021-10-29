@@ -12,7 +12,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	JButton button;
 	JTextField textField;
-   public String textobotao;
+    String textobotao;
 	
 	GUI(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +45,7 @@ public class GUI extends JFrame implements ActionListener{
 			//button.setEnabled(false);
 			//textField.setEditable(false);
             System.out.println("valor eh: " + valorcarac);
-        objcaractere.validarCaractere(valorcarac);
+            objcaractere.validarCaractere(valorcarac);
 		}
 		
 }

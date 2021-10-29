@@ -1,13 +1,15 @@
 import java.util.Scanner;
+import javax.swing.JTextField;
 
 public class caractere {
   Scanner objcarac = new Scanner(System.in);
 
-  public String receberEntrada() {
-    String caracdigitado;
+  public String receberEntrada(String textobotao) {
+    //GUI gui = new GUI();
+    String caracdigitado = textobotao;
        
-      System.out.println("digite um caractere valido ou uma frase: ");
-      caracdigitado = objcarac.nextLine();
+      //System.out.println("digite um caractere valido ou uma frase: ");
+      //caracdigitado = objcarac.nextLine();
       for(int j=0;j<caracdigitado.length();j++){
         if('a' != caracdigitado.charAt(j) && 'b' != caracdigitado.charAt(j) 
   && 'c' != caracdigitado.charAt(j) && 'd' != caracdigitado.charAt(j)

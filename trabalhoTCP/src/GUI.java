@@ -38,7 +38,7 @@ public class GUI extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==button) {
-			System.out.println("Welcome "+ textField.getText());
+			//System.out.println("Welcome "+ textField.getText());
             String valorcarac = textField.getText();
             caractere objcaractere= new caractere();
             valorcarac=objcaractere.receberEntrada(valorcarac);

@@ -23,7 +23,7 @@ public class notas {
     
      try {
       player.saveMidi(pattern2, file);
-      System.out.println("arquivo eh os guri pattern2");
+      
   
     } catch (IOException e) {
       //TODO Auto-generated catch block

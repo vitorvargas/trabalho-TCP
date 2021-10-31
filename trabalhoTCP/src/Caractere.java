@@ -4,7 +4,7 @@ import org.jfugue.Player;
 
 //import javax.swing.JTextField;
 
-public class caractere {
+public class Caractere {
   Scanner caractere = new Scanner(System.in);
 
   public String receberEntrada(String entrada) {
@@ -26,7 +26,7 @@ public class caractere {
   }
 
   public void validarTocarCaractere(String caractere, Player player) {
-    notas notas = new notas();
+    Notas notas = new Notas();
     int length = caractere.length();
 
     for (int i = 0; i < length; i++) {

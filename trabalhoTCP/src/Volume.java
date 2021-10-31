@@ -1,4 +1,4 @@
-public class volume {
+public class Volume {
     public void aumentarVolume() {
     }
 

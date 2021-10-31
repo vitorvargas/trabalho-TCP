@@ -1,4 +1,4 @@
-public class instrumento {
+public class Instrumento {
     public void escolherInstrumento() {
     }
 }

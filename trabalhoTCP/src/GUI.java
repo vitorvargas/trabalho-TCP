@@ -46,7 +46,7 @@ public class GUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {
 			String valorCarac = textField.getText();
-			Caractere objCaractere = new Caractere();
+			caractere objCaractere = new caractere();
 			valorCarac = objCaractere.receberEntrada(valorCarac);
 
 			// button.setEnabled(false);

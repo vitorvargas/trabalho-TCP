@@ -1,4 +1,4 @@
-public class oitava {
+public class Oitava {
     public void aumentarOitava() {
     }
 

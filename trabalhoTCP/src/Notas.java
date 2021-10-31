@@ -1,6 +1,6 @@
 import org.jfugue.*;
 
-public class notas {
+public class Notas {
    public void tocarNotas(String nota, Player player) {
       Pattern pattern = new Pattern(nota);
       player.play(pattern);

@@ -12,7 +12,6 @@ public class notas {
       player.play(pattern);
 
      if(((tamanho-1)-posatual)==0){
-
      File file = new File("arquivosom.mid");
      StringBuffer v1 = new StringBuffer();
      String v2;
@@ -20,6 +19,7 @@ public class notas {
       v1.append(v.get(j));
      }v2=v1.toString();
      Pattern pattern2 = new Pattern(v2);
+     System.out.println("arquivo salvo com sucesso");
     
      try {
       player.saveMidi(pattern2, file);

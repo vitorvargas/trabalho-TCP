@@ -18,9 +18,9 @@ public class caractere {
     // System.out.println("digite um caractere valido ou uma frase: ");
     // caracdigitado = objcarac.nextLine();
     for (int j = 0; j < caracDigitado.length(); j++) {
-      if ('a' != caracDigitado.charAt(j) && 'b' != caracDigitado.charAt(j) && 'c' != caracDigitado.charAt(j)
-          && 'd' != caracDigitado.charAt(j) && 'e' != caracDigitado.charAt(j) && 'f' != caracDigitado.charAt(j)
-          && 'g' != caracDigitado.charAt(j)) {
+      if ('A' != caracDigitado.charAt(j) && 'B' != caracDigitado.charAt(j) && 'C' != caracDigitado.charAt(j)
+          && 'D' != caracDigitado.charAt(j) && 'E' != caracDigitado.charAt(j) && 'F' != caracDigitado.charAt(j)
+          && 'G' != caracDigitado.charAt(j)) {
         System.out.println("digite um caractere valido ou uma frase: ");
         caracDigitado = caractere.nextLine();
         j = 0;
@@ -38,57 +38,48 @@ public class caractere {
     
 
     for (int i = 0; i < length; i++) {
-      switch (caractere.charAt(i)) {
-      case 'a':
+        if(caractere.charAt(i)=='A') {
         System.out.println("toca Nota La");
         v.add(i,"A"+" ");
-        notas.tocarNotas("A", player, length, i,v);
+        notas.tocarNotas("A", player, length, i,v);}
         
-        break;
-
-      case 'b':
+        else if(caractere.charAt(i)=='B'){
         System.out.println("tocar Nota Si");
         v.add(i,"B"+" ");
-        notas.tocarNotas("B", player, length, i,v);
+        notas.tocarNotas("B", player, length, i,v);}
         
-        break;
-
-      case 'c':
+        else if(caractere.charAt(i)=='C'){
         System.out.println("tocar Nota Do");
         v.add(i,"C"+" ");
-        notas.tocarNotas("C", player, length, i,v);
+        notas.tocarNotas("C", player, length, i,v);}
         
-        break;
-
-      case 'd':
+        else if(caractere.charAt(i)=='D') {
         System.out.println("tocar Nota Re");
         v.add(i,"D"+" ");
-        notas.tocarNotas("D", player, length, i,v);
+        notas.tocarNotas("D", player, length, i,v);}
         
-        break;
-
-      case 'e':
+        else if(caractere.charAt(i)=='E'){ 
         System.out.println("tocar Nota Mi");
         v.add(i,"E"+" ");
-        notas.tocarNotas("E", player, length, i,v);
-        
-        break;
+        notas.tocarNotas("E", player, length, i,v);}
 
-      case 'f':
+        else if(caractere.charAt(i)=='F'){ 
         System.out.println("tocar Nota Fa");
         v.add(i,"F"+" ");
-        notas.tocarNotas("F", player, length, i,v);
+        notas.tocarNotas("F", player, length, i,v);}
         
-        break;
 
-      case 'g':
+        else if(caractere.charAt(i)=='G'){
         System.out.println("tocar Nota Sol");
         v.add(i,"G"+" ");
-        notas.tocarNotas("G", player, length, i,v);
+        notas.tocarNotas("G", player, length, i,v);}
         
-        break;
+
+        else if(caractere.charAt(i)=='a'){
+        System.out.println("implementar pausa/silencio");}
+            
       }
     }
   
 }
-}
+

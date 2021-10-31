@@ -1,5 +1,7 @@
 public class BPM {
-    public void aumentarBPM(){}
-    public void diminuirBPM(){}
+    public void aumentarBPM() {
+    }
 
+    public void diminuirBPM() {
+    }
 }

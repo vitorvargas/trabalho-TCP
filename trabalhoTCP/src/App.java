@@ -2,15 +2,11 @@
 //import org.jfugue. *;
 
 public class App {
-    //static String valorcarac; 
-
     public static void main(String[] args) {
         GUI gui = new GUI();
-        //caractere objcaractere = new caractere();
-        //valorcarac = objcaractere.receberEntrada();
-        //System.out.println("valor eh: " + valorcarac);
-        //objcaractere.validarCaractere(valorcarac);
-        
-        
+        // caractere objcaractere = new caractere();
+        // valorcarac = objcaractere.receberEntrada();
+        // System.out.println("valor eh: " + valorcarac);
+        // objcaractere.validarCaractere(valorcarac);
     }
 }

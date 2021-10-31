@@ -1,5 +1,7 @@
-public class oitava {
-    public void aumentarOitava(){}
-    public void diminuirOitava(){}
+public class Oitava {
+    public void aumentarOitava() {
+    }
 
+    public void diminuirOitava() {
+    }
 }

@@ -1,60 +1,72 @@
 import java.util.Scanner;
+
+import org.jfugue.Player;
+
 //import javax.swing.JTextField;
 
-public class caractere {
-  Scanner objcarac = new Scanner(System.in);
+public class Caractere {
+  Scanner caractere = new Scanner(System.in);
 
-  public String receberEntrada(String textobotao) {
-    //GUI gui = new GUI();
-    String caracdigitado = textobotao;
-       
-      //System.out.println("digite um caractere valido ou uma frase: ");
-      //caracdigitado = objcarac.nextLine();
-      for(int j=0;j<caracdigitado.length();j++){
-        if('a' != caracdigitado.charAt(j) && 'b' != caracdigitado.charAt(j) 
-  && 'c' != caracdigitado.charAt(j) && 'd' != caracdigitado.charAt(j)
-  && 'e' != caracdigitado.charAt(j) && 'f' != caracdigitado.charAt(j) 
-  && 'g' != caracdigitado.charAt(j)){
-    System.out.println("digite um caractere valido ou uma frase: ");
-      caracdigitado = objcarac.nextLine();
-      j=0;
+  public String receberEntrada(String entrada) {
+    String caracDigitado = entrada;
 
-  } 
-
+    // System.out.println("digite um caractere valido ou uma frase: ");
+    // caracdigitado = objcarac.nextLine();
+    for (int j = 0; j < caracDigitado.length(); j++) {
+      if ('a' != caracDigitado.charAt(j) && 'b' != caracDigitado.charAt(j) && 'c' != caracDigitado.charAt(j)
+          && 'd' != caracDigitado.charAt(j) && 'e' != caracDigitado.charAt(j) && 'f' != caracDigitado.charAt(j)
+          && 'g' != caracDigitado.charAt(j)) {
+        System.out.println("digite um caractere valido ou uma frase: ");
+        caracDigitado = caractere.nextLine();
+        j = 0;
       }
-      
-    return caracdigitado;} 
-  
-  public void validarCaractere(String validacarac) {
-            notas objnotas = new notas();
-            for(int i=0;i<validacarac.charAt(i);i++){
-            switch (validacarac.charAt(i)) {
-            case 'a':  System.out.println("tocar Nota La");
-                      
-                      objnotas.tocarNotas("A");
-                     break;                                 
-            case 'b':  System.out.println("tocar Nota Si");
-            objnotas.tocarNotas("B");
-                     break;                                 
-            case 'c':  System.out.println("tocar Nota Do");
-            objnotas.tocarNotas("C");
-                     break;
-            case 'd':  System.out.println("tocar Nota Re");
-            objnotas.tocarNotas("D");
-                     break;
-            case 'e':  System.out.println("tocar Nota Mi");
-            objnotas.tocarNotas("E");
-                     break;
-            case 'f':  System.out.println("tocar Nota Fa");
-            objnotas.tocarNotas("F");
-                     break;
-            case 'g':  System.out.println("tocar Nota Sol");
-            objnotas.tocarNotas("G");
-                     break;
-  }
-}
+    }
 
-  
+    return caracDigitado;
+  }
+
+  public void validarTocarCaractere(String caractere, Player player) {
+    Notas notas = new Notas();
+    int length = caractere.length();
+
+    for (int i = 0; i < length; i++) {
+      switch (caractere.charAt(i)) {
+      case 'a':
+        System.out.println("toca Nota La");
+        notas.tocarNotas("A", player);
+        break;
+
+      case 'b':
+        System.out.println("tocar Nota Si");
+        notas.tocarNotas("B", player);
+        break;
+
+      case 'c':
+        System.out.println("tocar Nota Do");
+        notas.tocarNotas("C", player);
+        break;
+
+      case 'd':
+        System.out.println("tocar Nota Re");
+        notas.tocarNotas("D", player);
+        break;
+
+      case 'e':
+        System.out.println("tocar Nota Mi");
+        notas.tocarNotas("E", player);
+        break;
+
+      case 'f':
+        System.out.println("tocar Nota Fa");
+        notas.tocarNotas("F", player);
+        break;
+
+      case 'g':
+        System.out.println("tocar Nota Sol");
+        notas.tocarNotas("G", player);
+        break;
+      }
+    }
 
   }
 }

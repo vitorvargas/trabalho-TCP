@@ -1,5 +1,7 @@
-public class volume {
-    public void aumentarVolume() {}
-    public void diminuirVolume() {}
+public class Volume {
+    public void aumentarVolume() {
+    }
 
+    public void diminuirVolume() {
+    }
 }

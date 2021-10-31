@@ -23,7 +23,6 @@ public class notas {
     
      try {
       player.saveMidi(pattern2, file);
-      
   
     } catch (IOException e) {
       //TODO Auto-generated catch block
@@ -31,7 +30,6 @@ public class notas {
 
   }
 }
-
 
    public void pausar() {
    }

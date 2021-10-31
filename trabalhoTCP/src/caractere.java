@@ -4,23 +4,20 @@ import java.util.Vector;
 
 import org.jfugue.*;
 
-
-//import org.jfugue.Player;
-
-//import javax.swing.JTextField;
-
 public class caractere {
   Scanner caractere = new Scanner(System.in);
+
 
   public String receberEntrada(String entrada) {
     String caracDigitado = entrada;
 
-    // System.out.println("digite um caractere valido ou uma frase: ");
-    // caracdigitado = objcarac.nextLine();
+
     for (int j = 0; j < caracDigitado.length(); j++) {
       if ('A' != caracDigitado.charAt(j) && 'B' != caracDigitado.charAt(j) && 'C' != caracDigitado.charAt(j)
           && 'D' != caracDigitado.charAt(j) && 'E' != caracDigitado.charAt(j) && 'F' != caracDigitado.charAt(j)
-          && 'G' != caracDigitado.charAt(j)) {
+          && 'G' != caracDigitado.charAt(j) && 'a' != caracDigitado.charAt(j) && 'b' != caracDigitado.charAt(j) 
+          && 'c' != caracDigitado.charAt(j) && 'd' != caracDigitado.charAt(j) && 'e' != caracDigitado.charAt(j) 
+          && 'f' != caracDigitado.charAt(j) && 'g' != caracDigitado.charAt(j)) {
         System.out.println("digite um caractere valido ou uma frase: ");
         caracDigitado = caractere.nextLine();
         j = 0;
@@ -34,10 +31,13 @@ public class caractere {
     notas notas = new notas();
     int length = caractere.length();
     Vector<String> v= new Vector<String>(length);
-  
-    
+    int k=-1;
+    char anterior=caractere.charAt(0);
 
     for (int i = 0; i < length; i++) {
+      if(k>=0){
+      anterior = caractere.charAt(i-1);}
+      
         if(caractere.charAt(i)=='A') {
         System.out.println("toca Nota La");
         v.add(i,"A"+" ");
@@ -75,11 +75,22 @@ public class caractere {
         notas.tocarNotas("G", player, length, i,v);}
         
 
-        else if(caractere.charAt(i)=='a'){
-        System.out.println("implementar pausa/silencio");}
+        else if(caractere.charAt(i)=='a' || caractere.charAt(i)=='b' || caractere.charAt(i)=='c' ||
+        caractere.charAt(i)=='d' || caractere.charAt(i)=='e' || caractere.charAt(i)=='f' ||
+        caractere.charAt(i)=='g'){
+          if(anterior=='A' || anterior=='B' || anterior=='C' || anterior=='D' ||
+          anterior=='D' || anterior=='E' || anterior=='F' || anterior=='G'){
+          
+            String s=String.valueOf(anterior);
+            v.add(i,s+" ");
+            notas.tocarNotas(s, player, length, i,v);
+            System.out.println("regra do caractere anterior");
+
+          }else{System.out.println("implementar pausa/silencio");}
+          }
+        }
             
-      }
+      k++;
     }
   
 }
-

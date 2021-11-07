@@ -1,4 +1,12 @@
+
 public class instrumento {
-    public void escolherInstrumento() {
+    int instrumentoAtual = 0;
+
+    public String trocarInstrumento(int acrescimo) {
+        int valorNovoInstrumento = instrumentoAtual + acrescimo;
+        String tokenInstrumento = "I[" + valorNovoInstrumento + "] ";
+
+        return tokenInstrumento;
     }
+
 }

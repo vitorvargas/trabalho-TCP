@@ -1,6 +1,5 @@
 
 import java.util.Scanner;
-import java.util.Vector;
 
 import org.jfugue.*;
 
@@ -9,51 +8,46 @@ public class caractere {
 
   public void tocarEntrada(String caractere, Player player) {
     notas notas = new notas();
-    int comprimentoEntrada = caractere.length();
-    Vector<String> notasTocadas = new Vector<String>(comprimentoEntrada);
+    instrumento instrumentos = new instrumento();
 
-    for (int i = 0; i < comprimentoEntrada; i++) {
-      switch (caractere.charAt(i)) {
+    int comprimentoEntrada = caractere.length();
+    String sequencia = "";
+
+    for (int index = 0; index < comprimentoEntrada; index++) {
+      switch (caractere.charAt(index)) {
       case 'A':
-        System.out.println("A: toca Nota La");
-        notasTocadas.add("A" + " ");
-        notas.tocarNotas("A", player);
+        System.out.println("A: Nota La");
+        sequencia += "A ";
         break;
 
       case 'B':
-        System.out.println("B: tocar Nota Si");
-        notasTocadas.add("B" + " ");
-        notas.tocarNotas("B", player);
+        System.out.println("B : Nota Si");
+        sequencia += "B ";
         break;
 
       case 'C':
-        System.out.println("C: tocar Nota Do");
-        notasTocadas.add("C" + " ");
-        notas.tocarNotas("C", player);
+        System.out.println("C : Nota Do");
+        sequencia += "C ";
         break;
 
       case 'D':
-        System.out.println("D: tocar Nota Re");
-        notasTocadas.add("D" + " ");
-        notas.tocarNotas("D", player);
+        System.out.println("D : Nota Re");
+        sequencia += "D ";
         break;
 
       case 'E':
-        System.out.println("E: tocar Nota Mi");
-        notasTocadas.add("E" + " ");
-        notas.tocarNotas("E", player);
+        System.out.println("E : Nota Mi");
+        sequencia += "E ";
         break;
 
       case 'F':
-        System.out.println("F: tocar Nota Fa");
-        notasTocadas.add("F" + " ");
-        notas.tocarNotas("F", player);
+        System.out.println("F : Nota Fa");
+        sequencia += "F ";
         break;
 
       case 'G':
-        System.out.println("G: tocar Nota Sol");
-        notasTocadas.add("G" + " ");
-        notas.tocarNotas("G", player);
+        System.out.println("G : Nota Sol");
+        sequencia += "G ";
         break;
 
       case 'i':
@@ -76,8 +70,8 @@ public class caractere {
       case '7':
       case '8':
       case '9':
-        // TODO
-        System.out.println("trocando de instrumento");
+        String tokenInstrumento = instrumentos.trocarInstrumento(Character.getNumericValue(caractere.charAt(index)));
+        sequencia += tokenInstrumento;
         break;
 
       case '?':
@@ -113,30 +107,28 @@ public class caractere {
 
       default:
         // a regra para um caractere não definido na documentação é a mesma que a regra
-        // para os caracteres a-g minúsculos, portanto fica tudo englobado nesse
+        // para os caracteres a-g minúsculos e outras consoantes, portanto fica tudo
+        // englobado nesse
         // processamento default
-        if (i > 0) {
-          char anterior = caractere.charAt(i - 1);
+        if (index > 0) {
+          char anterior = caractere.charAt(index - 1);
 
-          if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'D'
-              || anterior == 'E' || anterior == 'F' || anterior == 'G') {
+          if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'E'
+              || anterior == 'F' || anterior == 'G') {
             System.out.println("regra do caractere anterior");
 
-            String s = String.valueOf(anterior);
-            notasTocadas.add(s + " ");
-            notas.tocarNotas(s, player);
+            sequencia += (String.valueOf(anterior) + " ");
           } else {
-            notasTocadas.add("R ");
-            notas.pausar();
+            sequencia += "R ";
           }
         } else {
-          notasTocadas.add("R ");
-          notas.pausar();
+          sequencia += "R ";
         }
         break;
       }
     }
 
-    notas.salvarArquivo(notasTocadas, player);
+    notas.tocar(sequencia.toString(), player);
+    notas.salvarArquivo(sequencia, player);
   }
 }

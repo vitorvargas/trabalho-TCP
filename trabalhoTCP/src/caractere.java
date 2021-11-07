@@ -56,8 +56,8 @@ public class caractere {
       case 'O':
       case 'u':
       case 'U':
-        // TODO
-        System.out.println("trocando para instrumento harpsichord");
+        String tokenHarpsichord = instrumentos.trocarParaHarpsichord();
+        sequencia += tokenHarpsichord;
         break;
 
       case '0':
@@ -86,23 +86,23 @@ public class caractere {
         break;
 
       case '!':
-        // TODO
-        System.out.println("trocando para instrumento agogo");
+        String tokenAgogo = instrumentos.trocarParaAgogo();
+        sequencia += tokenAgogo;
         break;
 
       case '\n':
-        // TODO
-        System.out.println("trocando para tubular bells");
+        String tokenTubularBells = instrumentos.trocarParaTubularBells();
+        sequencia += tokenTubularBells;
         break;
 
       case ';':
-        // TODO
-        System.out.println("trocando para pan flute");
+        String tokenPanFlute = instrumentos.trocarParaPanFlute();
+        sequencia += tokenPanFlute;
         break;
 
       case ',':
-        // TODO
-        System.out.println("trocando para church organ");
+        String tokenChurchOrgan = instrumentos.trocarParaChurchOrgan();
+        sequencia += tokenChurchOrgan;
         break;
 
       default:

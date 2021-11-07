@@ -7,23 +7,8 @@ import org.jfugue.*;
 public class caractere {
   Scanner caractere = new Scanner(System.in);
 
-
   public String receberEntrada(String entrada) {
     String caracDigitado = entrada;
-
-
-    for (int j = 0; j < caracDigitado.length(); j++) {
-      if ('A' != caracDigitado.charAt(j) && 'B' != caracDigitado.charAt(j) && 'C' != caracDigitado.charAt(j)
-          && 'D' != caracDigitado.charAt(j) && 'E' != caracDigitado.charAt(j) && 'F' != caracDigitado.charAt(j)
-          && 'G' != caracDigitado.charAt(j) && 'a' != caracDigitado.charAt(j) && 'b' != caracDigitado.charAt(j) 
-          && 'c' != caracDigitado.charAt(j) && 'd' != caracDigitado.charAt(j) && 'e' != caracDigitado.charAt(j) 
-          && 'f' != caracDigitado.charAt(j) && 'g' != caracDigitado.charAt(j)) {
-        System.out.println("digite um caractere valido ou uma frase: ");
-        caracDigitado = caractere.nextLine();
-        j = 0;
-      }
-    }
-
     return caracDigitado;
   }
 

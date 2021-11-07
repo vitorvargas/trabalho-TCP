@@ -15,67 +15,78 @@ public class caractere {
   public void validarTocarCaractere(String caractere, Player player) {
     notas notas = new notas();
     int length = caractere.length();
-    Vector<String> v= new Vector<String>(length);
-    int k=-1;
-    char anterior=caractere.charAt(0);
+    Vector<String> notasATocar = new Vector<String>(length);
+    int charsTocados = -1;
+    char anterior = caractere.charAt(0);
 
     for (int i = 0; i < length; i++) {
-      if(k>=0){
-      anterior = caractere.charAt(i-1);}
-      
-        if(caractere.charAt(i)=='A') {
+      if (charsTocados >= 0) {
+        anterior = caractere.charAt(i - 1);
+      }
+
+      switch (caractere.charAt(i)) {
+      case 'A':
         System.out.println("toca Nota La");
-        v.add(i,"A"+" ");
-        notas.tocarNotas("A", player, length, i,v);}
-        
-        else if(caractere.charAt(i)=='B'){
+        notasATocar.add(i, "A" + " ");
+        notas.tocarNotas("A", player, length, i, notasATocar);
+        break;
+
+      case 'B':
         System.out.println("tocar Nota Si");
-        v.add(i,"B"+" ");
-        notas.tocarNotas("B", player, length, i,v);}
-        
-        else if(caractere.charAt(i)=='C'){
+        notasATocar.add(i, "B" + " ");
+        notas.tocarNotas("B", player, length, i, notasATocar);
+        break;
+
+      case 'C':
         System.out.println("tocar Nota Do");
-        v.add(i,"C"+" ");
-        notas.tocarNotas("C", player, length, i,v);}
-        
-        else if(caractere.charAt(i)=='D') {
+        notasATocar.add(i, "C" + " ");
+        notas.tocarNotas("C", player, length, i, notasATocar);
+        break;
+
+      case 'D':
         System.out.println("tocar Nota Re");
-        v.add(i,"D"+" ");
-        notas.tocarNotas("D", player, length, i,v);}
-        
-        else if(caractere.charAt(i)=='E'){ 
+        notasATocar.add(i, "D" + " ");
+        notas.tocarNotas("D", player, length, i, notasATocar);
+        break;
+
+      case 'E':
         System.out.println("tocar Nota Mi");
-        v.add(i,"E"+" ");
-        notas.tocarNotas("E", player, length, i,v);}
+        notasATocar.add(i, "E" + " ");
+        notas.tocarNotas("E", player, length, i, notasATocar);
+        break;
 
-        else if(caractere.charAt(i)=='F'){ 
+      case 'F':
         System.out.println("tocar Nota Fa");
-        v.add(i,"F"+" ");
-        notas.tocarNotas("F", player, length, i,v);}
-        
+        notasATocar.add(i, "F" + " ");
+        notas.tocarNotas("F", player, length, i, notasATocar);
+        break;
 
-        else if(caractere.charAt(i)=='G'){
+      case 'G':
         System.out.println("tocar Nota Sol");
-        v.add(i,"G"+" ");
-        notas.tocarNotas("G", player, length, i,v);}
-        
+        notasATocar.add(i, "G" + " ");
+        notas.tocarNotas("G", player, length, i, notasATocar);
+        break;
 
-        else if(caractere.charAt(i)=='a' || caractere.charAt(i)=='b' || caractere.charAt(i)=='c' ||
-        caractere.charAt(i)=='d' || caractere.charAt(i)=='e' || caractere.charAt(i)=='f' ||
-        caractere.charAt(i)=='g'){
-          if(anterior=='A' || anterior=='B' || anterior=='C' || anterior=='D' ||
-          anterior=='D' || anterior=='E' || anterior=='F' || anterior=='G'){
-          
-            String s=String.valueOf(anterior);
-            v.add(i,s+" ");
-            notas.tocarNotas(s, player, length, i,v);
-            System.out.println("regra do caractere anterior");
+      default:
+        // a regra para um caractere não definido na documentação é a mesma que a regra
+        // para os caracteres a-g minúsculos, portanto fica tudo englobado nesse caso
+        // default
+        if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'D'
+            || anterior == 'E' || anterior == 'F' || anterior == 'G') {
+          System.out.println("regra do caractere anterior");
 
-          }else{System.out.println("implementar pausa/silencio");}
-          }
+          String s = String.valueOf(anterior);
+          notasATocar.add(i, s + " ");
+          notas.tocarNotas(s, player, length, i, notasATocar);
+        } else {
+          System.out.println("silencio");
+          notas.pausar();
         }
-            
-      k++;
+        break;
+      }
     }
-  
+
+    charsTocados++;
+  }
+
 }

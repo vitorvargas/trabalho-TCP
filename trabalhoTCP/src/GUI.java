@@ -32,7 +32,7 @@ public class GUI extends JFrame implements ActionListener {
 		textField.setForeground(new Color(0x00FF00));
 		textField.setBackground(Color.black);
 		textField.setCaretColor(Color.white);
-		textField.setText("insira o texto");
+		textField.setText("Aaa9EDd Ef!FfGuDEe;BC Ec,ACBbbF");
 
 		this.add(textField);
 		this.add(button);

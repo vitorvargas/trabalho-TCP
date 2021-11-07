@@ -9,9 +9,10 @@ public class caractere {
   public void tocarEntrada(String caractere, Player player) {
     notas notas = new notas();
     instrumento instrumentos = new instrumento();
+    volume volume = new volume();
 
     int comprimentoEntrada = caractere.length();
-    String sequencia = "";
+    String sequencia = "X[Volume]=8000 ";
 
     for (int index = 0; index < comprimentoEntrada; index++) {
       switch (caractere.charAt(index)) {
@@ -81,8 +82,8 @@ public class caractere {
         break;
 
       case ' ':
-        // TODO
-        System.out.println("dobrar volume ou voltar ao default");
+        String tokenVolume = volume.dobrarVolume();
+        sequencia += tokenVolume;
         break;
 
       case '!':

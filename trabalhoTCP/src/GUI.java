@@ -37,7 +37,6 @@ public class GUI extends JFrame implements ActionListener {
 		this.add(textField);
 		this.add(button);
 
-		// this.
 		this.pack();
 		this.setVisible(true);
 	}
@@ -45,14 +44,11 @@ public class GUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {
-			String valorCarac = textField.getText();
-			caractere objCaractere = new caractere();
-			valorCarac = objCaractere.receberEntrada(valorCarac);
+			String valorEntrada = textField.getText();
+			System.out.println("valor eh: " + valorEntrada);
 
-			// button.setEnabled(false);
-			// textField.setEditable(false);
-			System.out.println("valor eh: " + valorCarac);
-			objCaractere.validarTocarCaractere(valorCarac, player);
+			caractere objCaractere = new caractere();
+			objCaractere.tocarEntrada(valorEntrada, player);
 		}
 	}
 }

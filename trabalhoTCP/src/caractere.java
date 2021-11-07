@@ -7,86 +7,81 @@ import org.jfugue.*;
 public class caractere {
   Scanner caractere = new Scanner(System.in);
 
-  public String receberEntrada(String entrada) {
-    String caracDigitado = entrada;
-    return caracDigitado;
-  }
-
-  public void validarTocarCaractere(String caractere, Player player) {
+  public void tocarEntrada(String caractere, Player player) {
     notas notas = new notas();
-    int length = caractere.length();
-    Vector<String> notasATocar = new Vector<String>(length);
-    int charsTocados = -1;
-    char anterior = caractere.charAt(0);
+    int comprimentoEntrada = caractere.length();
+    Vector<String> notasTocadas = new Vector<String>(comprimentoEntrada);
 
-    for (int i = 0; i < length; i++) {
-      if (charsTocados >= 0) {
-        anterior = caractere.charAt(i - 1);
-      }
-
+    for (int i = 0; i < comprimentoEntrada; i++) {
       switch (caractere.charAt(i)) {
       case 'A':
         System.out.println("toca Nota La");
-        notasATocar.add(i, "A" + " ");
-        notas.tocarNotas("A", player, length, i, notasATocar);
+        notasTocadas.add("A" + " ");
+        notas.tocarNotas("A", player);
         break;
 
       case 'B':
         System.out.println("tocar Nota Si");
-        notasATocar.add(i, "B" + " ");
-        notas.tocarNotas("B", player, length, i, notasATocar);
+        notasTocadas.add("B" + " ");
+        notas.tocarNotas("B", player);
         break;
 
       case 'C':
         System.out.println("tocar Nota Do");
-        notasATocar.add(i, "C" + " ");
-        notas.tocarNotas("C", player, length, i, notasATocar);
+        notasTocadas.add("C" + " ");
+        notas.tocarNotas("C", player);
         break;
 
       case 'D':
         System.out.println("tocar Nota Re");
-        notasATocar.add(i, "D" + " ");
-        notas.tocarNotas("D", player, length, i, notasATocar);
+        notasTocadas.add("D" + " ");
+        notas.tocarNotas("D", player);
         break;
 
       case 'E':
         System.out.println("tocar Nota Mi");
-        notasATocar.add(i, "E" + " ");
-        notas.tocarNotas("E", player, length, i, notasATocar);
+        notasTocadas.add("E" + " ");
+        notas.tocarNotas("E", player);
         break;
 
       case 'F':
         System.out.println("tocar Nota Fa");
-        notasATocar.add(i, "F" + " ");
-        notas.tocarNotas("F", player, length, i, notasATocar);
+        notasTocadas.add("F" + " ");
+        notas.tocarNotas("F", player);
         break;
 
       case 'G':
         System.out.println("tocar Nota Sol");
-        notasATocar.add(i, "G" + " ");
-        notas.tocarNotas("G", player, length, i, notasATocar);
+        notasTocadas.add("G" + " ");
+        notas.tocarNotas("G", player);
         break;
 
       default:
         // a regra para um caractere não definido na documentação é a mesma que a regra
-        // para os caracteres a-g minúsculos, portanto fica tudo englobado nesse caso
-        // default
-        if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'D'
-            || anterior == 'E' || anterior == 'F' || anterior == 'G') {
-          System.out.println("regra do caractere anterior");
+        // para os caracteres a-g minúsculos, portanto fica tudo englobado nesse
+        // processamento default
+        if (i > 0) {
+          char anterior = caractere.charAt(i - 1);
 
-          String s = String.valueOf(anterior);
-          notasATocar.add(i, s + " ");
-          notas.tocarNotas(s, player, length, i, notasATocar);
+          if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'D'
+              || anterior == 'E' || anterior == 'F' || anterior == 'G') {
+            System.out.println("regra do caractere anterior");
+
+            String s = String.valueOf(anterior);
+            notasTocadas.add(s + " ");
+            notas.tocarNotas(s, player);
+          } else {
+            notasTocadas.add("R ");
+            notas.pausar();
+          }
         } else {
-          System.out.println("silencio");
+          notasTocadas.add("R ");
           notas.pausar();
         }
         break;
       }
     }
 
-    charsTocados++;
+    notas.salvarArquivo(notasTocadas, player);
   }
-
 }

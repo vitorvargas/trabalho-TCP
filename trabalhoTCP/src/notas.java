@@ -27,9 +27,6 @@ public class notas {
       for (String nota : notasTocadas) {
          v1.append(nota);
       }
-      // for (int j = 0; j < notasTocadas.size(); j++) {
-      // v1.append(notasTocadas.get(j));
-      // }
 
       Pattern pattern2 = new Pattern(v1.toString());
       System.out.println("arquivo salvo com sucesso");

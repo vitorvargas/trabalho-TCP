@@ -118,24 +118,3 @@ public class GUI extends JFrame implements ActionListener {
     }
 }
 }
-            
-
-
-
-	
-
-   /* public void showJanela02(File file, JFrame pai) throws FileNotFoundException, IOException {
-        JDialog janela02 = new JDialog(pai, "arquivo");
-        JTextArea jtxtA = new JTextArea();
-
-        BufferedReader input = new BufferedReader(new InputStreamReader(
-                new FileInputStream(file)));
-        jtxtA.read(input, "READING FILE :-)");
-
-        janela02.add(jtxtA);
-        janela02.pack();
-        janela02.setSize(300, 200);
-        janela02.setModal(true);
-        janela02.setVisible(true);
-        
-    }*/

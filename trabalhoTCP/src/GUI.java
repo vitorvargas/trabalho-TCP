@@ -16,6 +16,7 @@ public class GUI extends JFrame implements ActionListener {
 
 	JButton botaoTocarEntrada;
 	JButton botaoCarregarArquivo;
+	JTextArea textAreaEntrada;
 	JTextArea textArea;
 	JScrollPane scrollPane;
 	Player player;
@@ -25,21 +26,21 @@ public class GUI extends JFrame implements ActionListener {
 		panel.setLayout(new FlowLayout());
 		this.add(panel);
 
-		JLabel label = new JLabel("Digite uma entrada abaixo:");
-		panel.add(label);
-		label.setBounds(100, 100, 30, 30);
-		label.setFont(new Font("Consolas", Font.PLAIN, 20));
+		JLabel labelEntrada = new JLabel("Digite uma entrada abaixo:");
+		labelEntrada.setBounds(100, 100, 30, 30);
+		panel.add(labelEntrada);
+		labelEntrada.setFont(new Font("Consolas", Font.PLAIN, 20));
 
-		textArea = new JTextArea();
-		textArea.setLineWrap(true);
-		textArea.setSize(448, 64);
-		textArea.setFont(new Font("Consolas", Font.PLAIN, 32));
-		textArea.setForeground(new Color(0x00FF00));
-		textArea.setBackground(Color.black);
-		textArea.setCaretColor(Color.white);
-		textArea.setText("Aaa9EDd Ef!FfGuDEe;BC Ec,ACBbbF");
+		textAreaEntrada = new JTextArea();
+		textAreaEntrada.setLineWrap(true);
+		textAreaEntrada.setSize(448, 64);
+		textAreaEntrada.setFont(new Font("Consolas", Font.PLAIN, 32));
+		textAreaEntrada.setForeground(new Color(0x00FF00));
+		textAreaEntrada.setBackground(Color.black);
+		textAreaEntrada.setCaretColor(Color.white);
+		textAreaEntrada.setText("Aaa9EDd Ef!FfGuDEe;BCEc,ACBbbF");
 
-		scrollPane = new JScrollPane(textArea);
+		JScrollPane scrollPane = new JScrollPane(textAreaEntrada);
 		panel.add(scrollPane);
 
 		botaoTocarEntrada = new JButton("Tocar");
@@ -59,10 +60,10 @@ public class GUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getSource() == botaoTocarEntrada) {
-			String valorEntrada = textArea.getText();
-			System.out.println("valor eh: " + valorEntrada);
+			String valorEntrada = textAreaEntrada.getText();
+			System.out.println("entrada eh: " + valorEntrada);
 
-			caractere objCaractere = new caractere();
+			entrada objCaractere = new entrada();
 			objCaractere.tocarEntrada(valorEntrada, player);
 		}
 	}

@@ -3,19 +3,20 @@ import java.util.Scanner;
 
 import org.jfugue.*;
 
-public class caractere {
-  Scanner caractere = new Scanner(System.in);
+public class entrada {
+  Scanner entrada = new Scanner(System.in);
 
-  public void tocarEntrada(String caractere, Player player) {
-    notas notas = new notas();
-    instrumento instrumentos = new instrumento();
-    volume volume = new volume();
+  public void tocarEntrada(String entrada, Player player) {
+    notas objetoNotas = new notas();
+    instrumento objetoInstrumento = new instrumento();
+    volume objetoVolume = new volume();
+    arquivo objetoArquivo = new arquivo();
 
-    int comprimentoEntrada = caractere.length();
+    int comprimentoEntrada = entrada.length();
     String sequencia = "X[Volume]=8000 ";
 
     for (int index = 0; index < comprimentoEntrada; index++) {
-      switch (caractere.charAt(index)) {
+      switch (entrada.charAt(index)) {
       case 'A':
         System.out.println("A: Nota La");
         sequencia += "A ";
@@ -57,7 +58,7 @@ public class caractere {
       case 'O':
       case 'u':
       case 'U':
-        String tokenHarpsichord = instrumentos.trocarParaHarpsichord();
+        String tokenHarpsichord = objetoInstrumento.tokenHarpsichord();
         sequencia += tokenHarpsichord;
         break;
 
@@ -71,7 +72,8 @@ public class caractere {
       case '7':
       case '8':
       case '9':
-        String tokenInstrumento = instrumentos.trocarInstrumento(Character.getNumericValue(caractere.charAt(index)));
+        String tokenInstrumento = objetoInstrumento
+            .tokenTrocaInstrumento(Character.getNumericValue(entrada.charAt(index)));
         sequencia += tokenInstrumento;
         break;
 
@@ -82,27 +84,27 @@ public class caractere {
         break;
 
       case ' ':
-        String tokenVolume = volume.dobrarVolume();
+        String tokenVolume = objetoVolume.dobrarVolume();
         sequencia += tokenVolume;
         break;
 
       case '!':
-        String tokenAgogo = instrumentos.trocarParaAgogo();
+        String tokenAgogo = objetoInstrumento.tokenAgogo();
         sequencia += tokenAgogo;
         break;
 
       case '\n':
-        String tokenTubularBells = instrumentos.trocarParaTubularBells();
+        String tokenTubularBells = objetoInstrumento.tokenTubularBells();
         sequencia += tokenTubularBells;
         break;
 
       case ';':
-        String tokenPanFlute = instrumentos.trocarParaPanFlute();
+        String tokenPanFlute = objetoInstrumento.tokenPanFlute();
         sequencia += tokenPanFlute;
         break;
 
       case ',':
-        String tokenChurchOrgan = instrumentos.trocarParaChurchOrgan();
+        String tokenChurchOrgan = objetoInstrumento.tokenChurchOrgan();
         sequencia += tokenChurchOrgan;
         break;
 
@@ -112,7 +114,7 @@ public class caractere {
         // englobado nesse
         // processamento default
         if (index > 0) {
-          char anterior = caractere.charAt(index - 1);
+          char anterior = entrada.charAt(index - 1);
 
           if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'E'
               || anterior == 'F' || anterior == 'G') {
@@ -129,7 +131,7 @@ public class caractere {
       }
     }
 
-    notas.tocar(sequencia.toString(), player);
-    notas.salvarArquivo(sequencia, player);
+    objetoNotas.tocarSequencia(sequencia.toString(), player);
+    objetoArquivo.salvarArquivoMid(sequencia, player);
   }
 }

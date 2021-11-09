@@ -38,7 +38,7 @@ public class GUI extends JFrame implements ActionListener {
 		textAreaEntrada.setForeground(new Color(0x00FF00));
 		textAreaEntrada.setBackground(Color.black);
 		textAreaEntrada.setCaretColor(Color.white);
-		textAreaEntrada.setText("Aaa9EDd Ef!FfGuDEe;BCEc,ACBbbF");
+		textAreaEntrada.setText("Aaa9EDd Ef!FfGuDEe;BC\nEcDBE,AEAa");
 
 		JScrollPane scrollPane = new JScrollPane(textAreaEntrada);
 		panel.add(scrollPane);

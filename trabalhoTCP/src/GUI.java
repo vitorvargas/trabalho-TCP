@@ -3,7 +3,16 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +29,7 @@ public class GUI extends JFrame implements ActionListener {
 	JTextArea textArea;
 	JScrollPane scrollPane;
 	Player player;
+    JFrame frame;
 
 	GUI() {
 		JPanel panel = new JPanel();
@@ -47,6 +57,10 @@ public class GUI extends JFrame implements ActionListener {
 		panel.add(botaoTocarEntrada);
 		botaoTocarEntrada.addActionListener(this);
 
+        botaoCarregarArquivo = new JButton("Carregar Arquivo");
+		panel.add(botaoCarregarArquivo);
+        botaoCarregarArquivo.addActionListener(this);
+
 		this.setTitle("songfy");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
@@ -66,5 +80,33 @@ public class GUI extends JFrame implements ActionListener {
 			entrada objCaractere = new entrada();
 			objCaractere.tocarEntrada(valorEntrada, player);
 		}
+        else if (evento.getSource() == botaoCarregarArquivo){
+            try {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(frame);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    showJanela02(fileChooser.getSelectedFile(), frame);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        }
 	}
+
+    public void showJanela02(File file, JFrame pai) throws FileNotFoundException, IOException {
+        JDialog janela02 = new JDialog(pai, "Titulo 2");
+        JTextArea jtxtA = new JTextArea();
+
+        BufferedReader input = new BufferedReader(new InputStreamReader(
+                new FileInputStream(file)));
+        jtxtA.read(input, "READING FILE :-)");
+
+        janela02.add(jtxtA);
+        janela02.pack();
+        janela02.setModal(true);
+        janela02.setVisible(true);
+    }
+
+
 }

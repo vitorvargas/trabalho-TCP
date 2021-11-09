@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -81,21 +82,50 @@ public class GUI extends JFrame implements ActionListener {
 			objCaractere.tocarEntrada(valorEntrada, player);
 		}
         else if (evento.getSource() == botaoCarregarArquivo){
+            String key = "";
+            
             try {
                 JFileChooser fileChooser = new JFileChooser();
                 int result = fileChooser.showOpenDialog(frame);
                 if (result == JFileChooser.APPROVE_OPTION) {
-                    showJanela02(fileChooser.getSelectedFile(), frame);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+                    
+                    //showJanela02(fileChooser.getSelectedFile(), frame);
+                    try {
+                        FileReader arq = new FileReader(fileChooser.getSelectedFile());
+                        BufferedReader lerArq = new BufferedReader(arq);
+                        String linha = lerArq.readLine(); // lê a primeira linha
+                  // a variável "linha" recebe o valor "null" quando o processo
+                  // de repetição atingir o final do arquivo texto
+                  
+                        while (linha != null) {
+                          System.out.printf("%s\n", linha);
+                          key += linha;
+                  
+                          linha = lerArq.readLine(); // lê da segunda até a última linha
+                          
+                          
+                        }arq.close();System.out.println("linha atualidaza: "+key);}
+                
+                    
+                catch (Exception ex) {
+                    ex.printStackTrace();
             }
-
         }
-	}
 
-    public void showJanela02(File file, JFrame pai) throws FileNotFoundException, IOException {
-        JDialog janela02 = new JDialog(pai, "Titulo 2");
+        
+        }catch (Exception ex) {
+            ex.printStackTrace();}
+    }
+}
+}
+            
+
+
+
+	
+
+   /* public void showJanela02(File file, JFrame pai) throws FileNotFoundException, IOException {
+        JDialog janela02 = new JDialog(pai, "arquivo");
         JTextArea jtxtA = new JTextArea();
 
         BufferedReader input = new BufferedReader(new InputStreamReader(
@@ -104,9 +134,8 @@ public class GUI extends JFrame implements ActionListener {
 
         janela02.add(jtxtA);
         janela02.pack();
+        janela02.setSize(300, 200);
         janela02.setModal(true);
         janela02.setVisible(true);
-    }
-
-
-}
+        
+    }*/

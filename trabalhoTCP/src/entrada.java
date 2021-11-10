@@ -6,50 +6,53 @@ import org.jfugue.*;
 public class entrada {
   Scanner entrada = new Scanner(System.in);
 
-  public void tocarEntrada(String entrada, Player player) {
+  public void tocarEntrada(String entrada, Player player, boolean salvarArquivo) {
     notas objetoNotas = new notas();
     instrumento objetoInstrumento = new instrumento();
     volume objetoVolume = new volume();
     arquivo objetoArquivo = new arquivo();
+    oitava objetoOitavas = new oitava();
 
     int comprimentoEntrada = entrada.length();
     String sequencia = "X[Volume]=8000 ";
 
+    String token = "";
+
     for (int index = 0; index < comprimentoEntrada; index++) {
       switch (entrada.charAt(index)) {
       case 'A':
-        System.out.println("A: Nota La");
-        sequencia += "A ";
+        token = String.format("A%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'B':
-        System.out.println("B : Nota Si");
-        sequencia += "B ";
+        token = String.format("B%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'C':
-        System.out.println("C : Nota Do");
-        sequencia += "C ";
+        token = String.format("C%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'D':
-        System.out.println("D : Nota Re");
-        sequencia += "D ";
+        token = String.format("D%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'E':
-        System.out.println("E : Nota Mi");
-        sequencia += "E ";
+        token = String.format("E%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'F':
-        System.out.println("F : Nota Fa");
-        sequencia += "F ";
+        token = String.format("F%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'G':
-        System.out.println("G : Nota Sol");
-        sequencia += "G ";
+        token = String.format("G%s ", objetoOitavas.oitavaAtual);
+        sequencia += token;
         break;
 
       case 'i':
@@ -79,8 +82,7 @@ public class entrada {
 
       case '?':
       case '.':
-        // TODO
-        System.out.println("aumentar uma oitava ou voltar ao default");
+        objetoOitavas.aumentarUmaOitava();
         break;
 
       case ' ':
@@ -118,8 +120,6 @@ public class entrada {
 
           if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'E'
               || anterior == 'F' || anterior == 'G') {
-            System.out.println("regra do caractere anterior");
-
             sequencia += (String.valueOf(anterior) + " ");
           } else {
             sequencia += "R ";
@@ -132,6 +132,7 @@ public class entrada {
     }
 
     objetoNotas.tocarSequencia(sequencia.toString(), player);
-    objetoArquivo.salvarArquivoMid(sequencia, player);
+    if (salvarArquivo)
+      objetoArquivo.salvarArquivoMid(sequencia, player);
   }
 }

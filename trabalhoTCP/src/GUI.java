@@ -70,13 +70,14 @@ public class GUI extends JFrame implements ActionListener {
 
 		if (evento.getSource() == botaoTocarEntrada) {
 			String valorEntrada = textAreaEntrada.getText();
-			objetoEntrada.tocarEntrada(valorEntrada, player);
+			objetoEntrada.tocarEntrada(valorEntrada, player, true);
 		} else if (evento.getSource() == botaoCarregarArquivo) {
 			arquivo objetoArquivo = new arquivo();
 
 			String retornoArquivo = objetoArquivo.carregarArquivoTxt(frame);
 
 			switch (retornoArquivo) {
+			// TODO label com as mensagens abaixo talvez
 			case "extensao_invalida":
 				System.out.println("O arquivo a ser carregado deve ser do tipo txt");
 				break;
@@ -84,7 +85,7 @@ public class GUI extends JFrame implements ActionListener {
 				System.out.println("Ocorreu um erro na leitura do arquivo");
 				break;
 			default:
-				objetoEntrada.tocarEntrada(retornoArquivo, player);
+				objetoEntrada.tocarEntrada(retornoArquivo, player, false);
 				break;
 			}
 		}

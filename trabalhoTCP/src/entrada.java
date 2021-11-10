@@ -120,7 +120,9 @@ public class entrada {
 
           if (anterior == 'A' || anterior == 'B' || anterior == 'C' || anterior == 'D' || anterior == 'E'
               || anterior == 'F' || anterior == 'G') {
-            sequencia += (String.valueOf(anterior) + " ");
+
+            token = String.valueOf(anterior) + objetoOitavas.oitavaAtual + " ";
+            sequencia += token;
           } else {
             sequencia += "R ";
           }

@@ -1,6 +1,5 @@
 public class volume {
     int volumeAtual = 4000;
-    // X[Volume]=10200
 
     public String dobrarVolume() {
         String tokenVolume;

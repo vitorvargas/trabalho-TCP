@@ -16,12 +16,13 @@ public class arquivo {
         String nomeArquivo = String.format("arquivo_som_%d.mid", indexArquivos);
         File file = new File(nomeArquivo);
 
+        // TODO talvez colocar labels de sucesso/erro
         try {
             player.saveMidi(new Pattern(notasTocadas), file);
-            System.out.println("arquivo salvo com sucesso");
+            System.out.println("\nArquivo salvo com sucesso");
             indexArquivos++;
         } catch (IOException e) {
-            System.out.println("ocorreu um erro ao salvar o arquivo mid");
+            System.out.println("\nOcorreu um erro ao salvar o arquivo mid");
             e.printStackTrace();
         }
     }
@@ -58,7 +59,6 @@ public class arquivo {
                 return "erro_leitura";
             }
         }
-
         return conteudo;
     }
 
